@@ -1,2 +1,1 @@
-# homelab-terraform
-Terraform for my homelab
+# Terraform for my homelab
