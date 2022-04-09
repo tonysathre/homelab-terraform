@@ -16,6 +16,7 @@ module "domain-controllers" {
   version              = "3.4.1"
   cpu_number           = var.num_cpus
   num_cores_per_socket = var.num_cores_per_socket
+  cpu_hot_add_enabled  = var.cpu_hot_add_enabled
   ram_size             = var.memory
   instances            = var.instances
   dc                   = var.datacenter
@@ -38,13 +39,14 @@ module "domain-controllers" {
   vmgateway       = var.ipv4_gateway
   auto_logon      = var.autologon
   #run_once         = ["command01", "command02"] // You can also run Powershell commands
-  orgname          = var.organization_name
-  workgroup        = var.workgroup
-  is_windows_image = true
-  firmware         = var.firmware
-  local_adminpass  = var.admin_password
-  force_power_off  = false
-  annotation       = "${var.annotation} ${local.date}"
+  orgname              = var.organization_name
+  workgroup            = var.workgroup
+  is_windows_image     = true
+  firmware             = var.firmware
+  local_adminpass      = var.admin_password
+  force_power_off      = false
+  annotation           = var.annotation
+  migrate_wait_timeout = var.migrate_wait_timeout
 }
 
 output "vmnames" {

@@ -48,6 +48,11 @@ variable "num_cores_per_socket" {
   type = number
 }
 
+variable "cpu_hot_add_enabled" {
+  type    = bool
+  default = false
+}
+
 variable "memory" {
   type = number
 }
@@ -113,5 +118,14 @@ variable "dns_domain" {
 }
 
 variable "annotation" {
+  type = string
+}
+
+variable "force_power_off" {
+  type    = bool
+  default = false
+}
+
+variable "migrate_wait_timeout" {
   type = string
 }
